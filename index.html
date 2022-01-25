@@ -1,0 +1,613 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index.html</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+    <style>
+      p {
+        text-align: justify;
+      }
+    </style>
+  </head>
+
+  <body class="stackedit">
+    <div class="stackedit__left">
+      <div class="stackedit__toc">
+        <ul>
+          <li>
+            <a href="#alkalmazasfejlesztes-microsoft-power-platformon"
+              >Alkalmazasfejlesztes-Microsoft-Power-Platformon</a
+            >
+            <ul>
+              <li><a href="#bevezetés">Bevezetés</a></li>
+              <li>
+                <a href="#probléma-definíció-és-követelmények"
+                  >Probléma definíció és követelmények</a
+                >
+              </li>
+              <li>
+                <a href="#funkcionális-és-nem-funkcionális-követelmények"
+                  >Funkcionális és nem funkcionális követelmények</a
+                >
+              </li>
+              <li>
+                <a href="#felhasznált-technológiák">Felhasznált technológiák</a>
+              </li>
+              <li>
+                <a href="#modell-vezérelt-alkalmazás-1"
+                  >Modell vezérelt alkalmazás</a
+                >
+              </li>
+              <li>
+                <a href="#felhasználói-bemutatás">Felhasználói bemutatás</a>
+              </li>
+              <li>
+                <a href="#fejlesztői-dokumentáció">Fejlesztői dokumentáció</a>
+              </li>
+              <li><a href="#munkamenet-felosztás">Munkamenet, felosztás</a></li>
+              <li><a href="#összefoglalás">Összefoglalás</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="stackedit__right">
+      <div class="stackedit__html" style="margin-left: 3%; max-width: 100%">
+        <h1 id="alkalmazasfejlesztes-microsoft-power-platformon">
+          Alkalmazasfejlesztes-Microsoft-Power-Platformon
+        </h1>
+        <h2 id="bevezetés">Bevezetés</h2>
+        <p>
+          Ötlet két kiindulási pontja az első: MlSZ adatbank weboldal. Ahol a
+          magyar fociról sok minden megtalálható: válogatott játékosok, jegyek,
+          webshop szövetség, fejlesztések számomra a lényeges része a
+          meccscenter. Ahol egy adott bajnokságról vannak adatok: aktuális
+          szezon szervezője például Vas, Somogy, Pest, Bács-Kiskun, Baranya,
+          Békés, Borsod-Abaúj Zemplén, Budapest, Csongrád, Fejér,
+          Győr-Moson-Sopron, Hajdú-Bihar, Jász-Nagykun-Szolnok,
+          Komárom-Esztergom, Nógrád
+        </p>
+        <p>
+          Második: eredmények mobil alkalmazás vagy az
+          <a href="http://xn--eredmnyek-f4a.com">eredmények.com</a> weboldal,
+          ahol mindenféle sport elérhető például jégkorong, tenisz, kosárlabda,
+          kézilabda, röplabda, darts, amerikai futball, asztali tenisz,
+          baseball, box, eSport, florball, futsal, golf, gyephoki, kerékpár,
+          krikett, ligarögbi, lóverseny, MMA, motorsport, Netball, rögbi,
+          strandfoci, strandröplabda, tollaslabda, vízilabda, illetve foci.
+        </p>
+        <p>
+          Az eredményeken focis felületem az OTP Bank Liga NBI. Merkantil Liga
+          NB II. NBIII. keleti csoport NBIII. közép csoport NBIII. nyugati
+          csoport MOL Magyar Kupa Amatőr kupa Simple Női Liga NBI. Női NB II.
+          Keleti csoport Női NBII. Nyugati csoport Simple Női kupa stb. érhető
+          el, de a megyei bajnokságok nem elérhetőek itt.
+        </p>
+        <p>
+          Az MLSZ adatbankban elérhetőek a megyei bajnokságok, de az eredmények
+          alkalmazásban csak NBIII-ig nézhető meg.
+        </p>
+        <p>
+          Feladat megvalósítása arra irányul, hogy egy olyan alkalmazás
+          fejlesztése, ami a megyei csapatokra koncentrál, illetve adott
+          egyesületekre, ahol az egyesület maga tudja kezelni, létrehozni,
+          szerkeszteni, adatait és kimutatásokat statisztikát létrehozni.
+        </p>
+        <p>
+          Az itt bemutatott munka az eddig elkészült megoldások részei, mely
+          jelenleg több környezetből áll egyrészt egy modell vezérelt
+          alkalmazás, amely főként csapatokról fordulókról játékosokról táról
+          adatott, valamint power Bi jelentést lehet hozzáadni.
+        </p>
+        <p>
+          Másrészt egy vászon alapú mobilos alkalmazás, amelyen csapatokról és
+          játékosokról találunk információikat van lehetőség csapatokat
+          szerkeszteni, hozzáadni vagy törölni.
+        </p>
+        <p>
+          Harmadrészt power Bi irányítópult jelentések, amik főként keresésnél
+          adnak szűrési lehetőségeket. Lehetőség van az első kettő alkalmazás
+          adat táblái között kapcsolatot létrehozni.
+        </p>
+        <h2 id="probléma-definíció-és-követelmények">
+          Probléma definíció és követelmények
+        </h2>
+        <p>
+          MLSZ adatbankba nagyon sok adat szerepel és a megyei meccseket csak
+          később teszik fel és aki esetleg nem járatos benne könnyen eltéved az
+          oldal rengeteg adat tábláiban.
+        </p>
+        <h2 id="funkcionális-és-nem-funkcionális-követelmények">
+          Funkcionális és nem funkcionális követelmények
+        </h2>
+        <h3 id="funkcionális-követelmények">Funkcionális követelmények</h3>
+        <h4 id="modell-vezérelt-alkalmazás">Modell vezérelt alkalmazás</h4>
+        <ul>
+          <li>1. Legyen szerkeszthető a csapatok</li>
+          <li>2. Legyen szerkeszthető a fordulok</li>
+          <li>3. Legyen szerkeszthető a játékos adatok</li>
+          <li>4. Lehessen Power Bi jelentést hozzáadni</li>
+        </ul>
+        <h4 id="vászon-alapú-alkalmazás">Vászon alapú alkalmazás</h4>
+        <ul>
+          <li>
+            <p>Amelyik oldalon szükséges ott keresési lehetőség megadása</p>
+          </li>
+          <li>
+            <p>Csapatok szerkeszthetősége</p>
+          </li>
+          <li>
+            <p>Készüljenek statisztikai adatok</p>
+          </li>
+          <li>
+            <p>Minden csapatnak legyen egy gól lövő listája</p>
+          </li>
+        </ul>
+        <h3 id="nem-funkcionális-követelmények">
+          Nem funkcionális követelmények
+        </h3>
+        <ul>
+          <li>
+            <p>Az alkalmazások könnyen elérhetőek legyenek</p>
+          </li>
+          <li>
+            <p>Egyszerű feladatok elvégzése</p>
+          </li>
+          <li>
+            <p>Legyenek elérhetőek mobilon</p>
+          </li>
+          <li>
+            <p>Amelyiknél lehetséges mobilos nézett létrehozása</p>
+          </li>
+          <li>
+            <p>Alkalmazások forrása legyen verzió követett</p>
+          </li>
+          <li>
+            <p>Váltson gyorsan az oldalak között</p>
+          </li>
+        </ul>
+        <h2 id="felhasznált-technológiák">Felhasznált technológiák</h2>
+        <h3 id="power-apps">Power Apps</h3>
+        <p>
+          A Power Apps alkalmazások, szolgáltatások és összekötők gyűjteménye,
+          illetve egy adatplatform, amely gyors alkalmazásfejlesztést és hozzá
+          saját környezetet kínál ahol a mi igényeink szerint hozhatunk létre
+          egyéni alkalmazásokat.
+        </p>
+        <p>
+          A Power Apps használatával gyorsan lehet létrehozni olyan
+          alkalmazásokat, amelyek csatlakozni tudnak adataihoz akár a mögöttes
+          adatplatformon dataverse, vagy akár különféle online és helyszíni
+          adatforrásban tárolva például Drive, SharePoint, Excel, Office 365,
+          Dynamics 365, SQL Server alapján.
+        </p>
+        <p>
+          A Power Apps használatával létrehozott alkalmazások előre beállított
+          logikával és munkafolyamatokkal kapcsolatos képességekkel
+          rendelkeznek, amelyekkel manuális üzleti műveleteit egy digitális,
+          automatizált folyamattá alakíthatja át. A Power Apps használatával
+          készült alkalmazások ezen kívül rugalmas kialakítással rendelkeznek,
+          és gördülékenyen futtathatók akár böngészőben, akár mobileszközökön.
+        </p>
+        <p>
+          A Power Apps a felhasználókra bízza az egyéni alkalmazások
+          létrehozását, hiszen lehetővé teszi számunkra, hogy funkciókban gazdag
+          egyéni alkalmazásokat hozhassunk létre kódírás nélkül.
+        </p>
+        <p>
+          A Power Apps kiterjeszthető platformot is biztosít ahhoz, hogy
+          programozott módon végezhessünk az adatokon és metaadatokon
+          alkalmazott módosítások szerinti létrehozást és add lehetőséget egyéni
+          összekötők és a külső adatokból való integritás megvalósítására.
+        </p>
+        <h4 id="alkalmazások-létrehozásának-módszerei">
+          Alkalmazások létrehozásának módszerei
+        </h4>
+        <h5 id="vászonkalapú-alkalmazás">Vászonkalapú alkalmazás</h5>
+        <p>
+          Az alkalmazást ugyanúgy megtervezhetjük, mintha egy diát terveznénk a
+          PowerPointban elemek áthúzásával a vászonra. A logika meghatározásához
+          és az adatokkal való munkavégzéshez az Excelben használtakhoz hasonló
+          kifejezéseket hozhatunk létre.
+        </p>
+        <p>
+          Tervezhettünk és építhetünk egy alkalmazást vászonról anélkül, hogy
+          kódot kéne írnunk egy programozási nyelven.
+        </p>
+        <h4 id="alkalmazásokat-létrehozhatjuk-a-következő-forrásokból">
+          Alkalmazásokat létrehozhatjuk a következő forrásokból:
+        </h4>
+        <p>
+          Minta alkalmazásból, amik kitalált adatokat használnak egy valós
+          életből vett forgatókönyv bemutatására. Mindegyik minta más-más
+          forgatókönyvet jelent különböző vezérlőkkel és képernyőkkel.
+        </p>
+        <p>
+          Sablonból itt egy sablont használunk fel, amihez szükség van egy felhő
+          alapú tárfiókra.
+        </p>
+        <p>
+          Excel fájlból, amelynél az alkalmazás egy excel tábla adataira épül.
+          Az excel-fájlnak egy felhő alapú tárfiókban kell lennie egy OneDrive,
+          Google Drive vagy Dropbox fiókban.
+        </p>
+        <p>
+          SharePoint lista elemei alapján vagy a Power Apps-szolgáltatáson belül
+          létrehozhatunk alkalmazást egy helyszíni SharePoint-webhelyen lévő
+          listából is, ha csatlakozunk ahhoz egy adat átjárón keresztül.
+        </p>
+        <p>
+          Dataverse rendszeréből a létrehozott alkalmazásban böngészhetünk a
+          fiókok listája között, megjeleníthetünk egy-egy fiók részletes
+          adatait, létrehozhatunk vagy törölhetünk egy fiókot, vagy
+          frissíttethetjük a hozzá tartozó információkat. Az elején létre kell
+          hoznunk egy kapcsolatot a microsoft dataverse rendszerével.
+        </p>
+        <p>
+          SQL adatbázisból előfeltételei: böngészőben engedélyeznünk kell az
+          előugró ablakokat, Azure előfizetésre van szükség, az sql adatbázisnak
+          legalább egy szöveg adattípusú oszloppal kell rendelkeznie, a tűzfal
+          beállításánál engedélyezni kell az azure sevices hozzáférését az sql
+          kiszolgálóhoz, a meglévő sql adatbázishoz hozzáférést kell
+          biztosítani.
+        </p>
+        <p>
+          A fentiekből következik, hogy a hat megoldás közül bármelyik
+          választható. A hat lehetőség közül én a harmadikat választottam.
+        </p>
+        <h3 id="excel">Excel</h3>
+        <p>
+          Az Excel egy olyan kapcsolat, amely adatforrássá válik a Power Apps
+          alkalmazáshoz való hozzáadásakor. Az Excel Power Apps alkalmazásból
+          való csatlakoztatásához az alábbi négy lépést hajtottam végre.
+        </p>
+        <p>
+          1.léppés – Webes tatalomból url cím alapján kinyertem az adatokat.
+        </p>
+        <ol start="2">
+          <li>
+            <p>
+              lépés – Az adatokat megformáztam külön-külön táblázatként az
+              Excelben.
+            </p>
+          </li>
+          <li>
+            <p>
+              lépés –Az excel fájlokat egy felhőalapú helyen ez esetben a google
+              dirveba tároltam.
+            </p>
+          </li>
+          <li>
+            <p>lépés – Az excel hozzáadása power app adatforrásként</p>
+          </li>
+        </ol>
+        <h2 id="modell-vezérelt-alkalmazás-1">Modell vezérelt alkalmazás</h2>
+        <p>
+          A modellvezérelt alkalmazástervezés olyan megközelítés, amely az
+          összetevők, például űrlapok, nézetek, diagramok és irányítópultok
+          táblázatokhoz való…hozzáadására összpontosít egy alkalmazástervező
+          eszköz segítségével.
+        </p>
+        <p>
+          Ezenkívül kapcsolatok összekapcsolja a táblákat oly módon, hogy
+          lehetővé tegye a közöttük való navigációt, és biztosítsa, hogy az
+          adatok ne ismétlődhessenek meg szükségtelenül. Az alkalmazástervezőt
+          kevés vagy semmilyen kód nélküli használatával egyszerű vagy nagyon
+          összetett alkalmazásokat hozhatunk létre.
+        </p>
+        <p>
+          Bár modellvezérelt alkalmazásoknak nevezik őket, gyakran könnyebb úgy
+          gondolni rájuk, mint adatmodell-vezérelt alkalmazásokra. Ennek az az
+          oka, hogy a beépített adatmodell nélkül Microsoft Dataverse nem hozhat
+          létre modellvezérelt alkalmazást.
+        </p>
+        <h3 id="előnyei">Előnyei</h3>
+        <p>
+          · a modell vezérelt alkalmazásokkal a felhasználói felület nagy részét
+          előre meghatározza számunkra a rendszer, és nagyrészt az alkalmazáshoz
+          hozzáadott összetevők jelölik ki.
+        </p>
+        <p>
+          · &gt;Az alkalmazások hasonló felhasználói felülettel rendelkeznek a
+          különböző eszközökön az asztaltól a mobilig.
+        </p>
+        <p>
+          · Az adatmodell és a kapcsolatok létrehozása után az építési folyamat
+          viszonylag gyors a gazdag alkatrész-központú kód nélküli tervezőknek
+          köszönhetően.
+        </p>
+        <p>
+          · A felhasználói élmény konzisztens az összes modell vezérelt
+          alkalmazásban. Ha a felhasználó magabiztos egy modell vezérelt
+          alkalmazással, a későbbi alkalmazásokat könnyebben alkalmazhatja egy
+          szervezeten belül.
+        </p>
+        <p>
+          · Az alkalmazások fejlesztési, tesztelési és éles környezetek közötti
+          áttelepítése viszonylag egyszerű a megoldások használatával.
+        </p>
+        <p>· Az alkalmazások automatikusan elérhetők és reagálnak.</p>
+        <h3 id="a-modell-vezérelt-alkalmazások-építésének-követelményei">
+          A modell vezérelt alkalmazások építésének követelményei:
+        </h3>
+        <p>· Microsoft Power Apps Engedély.</p>
+        <p>
+          · Környezet létrehozásának Power Platform képessége. Ez a birtokában
+          lévő Power Apps Dynamics 365 licencek egyik jellemzője.
+        </p>
+        <p>· Power Platform-környezet.</p>
+        <p>
+          · Jogosultságok a készítő számára, hogy rendszerszabóként vagy
+          környezetkészítőként működjön abban a környezetben, ahol a
+          modellvezérelt alkalmazás létrejön. További információ: Az előre
+          definiált biztonsági szerepkörökkel kapcsolatos tudnivalók
+        </p>
+        <p>
+          · Dataverse Adatbázis a környezetben. Ez akkor van kiválasztva, ha
+          környezetet hoz létre. További információk a Környezet létrehozása
+          adatbázissal részben találhatók.
+        </p>
+        <p>
+          · Egy táblaoszlop. (Minden táblának van legalább egy oszlopa és sok
+          rendszeroszlopa.)
+        </p>
+        <p>
+          · Egy táblanézet a rekordok megtekintéséhez. (Alapértelmezés szerint
+          van egy szám.)
+        </p>
+        <p>
+          · Egy táblaűrlap, az adatok megadásához. (Alapértelmezés szerint lesz
+          egy.)
+        </p>
+        <p>
+          · Egy asztal. (Számos szabványos tábla létezik, beleértve a fiókot is,
+          amelyek alapértelmezés szerint léteznek.)
+        </p>
+        <h3
+          id="a-modell-vezérelt-alkalmazásnál-használt-megoldása-a-dataversre-esett."
+        >
+          A modell vezérelt alkalmazásnál használt megoldása a dataversre esett.
+        </h3>
+        <h4 id="dataverse-előnyei">Dataverse Előnyei:</h4>
+        <p>
+          A Dataverse alkalmazásokhoz szabványos és egyéni táblái biztonságos és
+          felhőalapú tárhelylehetőséget nyújtanak az adatoknak. A táblák
+          lehetővé teszik a szervezet adatainak üzletre koncentrált
+          definíciójának létrehozását alkalmazások belüli használatra
+        </p>
+        <p>
+          · Könnyen kezelhető – A metaadatokat és az adatokat is a felhőben
+          tárolja. Nem kell foglalkoznia részletekkel, hogy hogyan vannak
+          tárolva.
+        </p>
+        <p>
+          · Egyszerűen biztonságossá tehető – Az adatokat biztonságosan tárolja,
+          a felhasználók csak akkor tekinthetik meg őket, ha hozzáférést
+          engedélyez nekik. A szerepköralapú biztonság lehetővé teszi a
+          szervezeten belüli a felhasználók számára a táblákhoz való hozzáférés
+          szabályozását.
+        </p>
+        <p>
+          · A Dynamics 365-adatok elérése – A Dynamics 365 alkalmazások adatait
+          is a Dataverse tárolja, így gyorsan elkészíthet alkalmazásokat,
+          amelyek a Dynamics 365-adatokat használják, és kibővítheti az
+          alkalmazásokat a Power Apps segítségével.
+        </p>
+        <p>
+          · Széles körű metaadatok – Az adattípusokat és kapcsolatokat
+          közvetlenül a Power Apps szolgáltatáson belül alkalmazzák.
+        </p>
+        <p>
+          · Logika és ellenőrzés – Meghatározhat számított oszlopokat, üzleti
+          szabályokat, munkafolyamatokat és üzleti folyamatokat az adatminőség
+          biztosításához és az üzleti folyamatok előre viteléhez.
+        </p>
+        <p>
+          · Termelékenységi eszközök – A táblák a Microsoft Excel-bővítményekben
+          érhetők el, a termelékenység növelésére és az adat-hozzáférhetőség
+          biztosítására.
+        </p>
+        <h3 id="power-bi">Power Bi</h3>
+        <h4 id="önkiszolgáló-elemzések-nagyvállalati-szinten">
+          Önkiszolgáló elemzések nagyvállalati szinten
+        </h4>
+        <p>
+          Egy egyéni szintről szervezeti szintre méretezhető elemzési
+          platformmal csökkentheti a több megoldással járó további díjakat,
+          összetettséget és biztonsági kockázatokat.
+        </p>
+        <h4 id="hatékony-eredmények-intelligens-eszközökkel">
+          Hatékony eredmények intelligens eszközökkel
+        </h4>
+        <p>
+          A több száz adatvizualizáció, a beépített AI-funkciók, a szoros
+          Excel-integráció, valamint az előre létrehozott és egyéni
+          adatösszekötők segítségével hasznos információkat találhat és oszthat
+          meg másokkal.
+        </p>
+        <h4 id="az-elemzési-adatok-védelme">Az elemzési adatok védelme</h4>
+        <p>
+          Adatai biztonságáról gondoskodhat iparágvezető adatbiztonsági
+          lehetőségeinkkel, amely többek között bizalmassági címkéket,
+          végponttól végpontig tartó titkosítást és valós idejű
+          hozzáférés-figyelést is biztosít.
+        </p>
+        <h2 id="felhasználói-bemutatás">Felhasználói bemutatás</h2>
+        <h3 id="modell-vezérelt-alkalmazás-2">Modell vezérelt alkalmazás</h3>
+        <p>A fő oldal itt érhető el az 1. csoport táblái láthatóak.</p>
+        <p>Mind a hármat meglehet nyitini és adatait szerkezteni.</p>
+        <p>
+          <a
+            href="https://org3e937280.crm4.dynamics.com/main.aspx?appid=8f89d152-2d7d-ec11-8d21-0022489e089c&amp;pagetype=entitylist&amp;etn=new_csapatok&amp;viewid=e3070cd3-5076-40f2-b664-d8e5517617e2&amp;viewType=1039"
+            >https://org3e937280.crm4.dynamics.com/main.aspx?appid=8f89d152-2d7d-ec11-8d21-0022489e089c&amp;pagetype=entitylist&amp;etn=new_csapatok&amp;viewid=e3070cd3-5076-40f2-b664-d8e5517617e2&amp;viewType=1039</a
+          >
+        </p>
+        <p><img src="images/1.png" alt="" /></p>
+        <p>
+          Jelentések fül ahol kedvünkre választhatunk miket szeretnénk
+          megjeleníteni.
+        </p>
+        <p><img src="images/2.png" alt="" /></p>
+        <h3 id="vászon-alapú-alkalmazás-mobilon-való-bemutatása.">
+          Vászon alapú alkalmazás mobilon való bemutatása.
+        </h3>
+        <p>A fő oldal itt érhető el</p>
+        <p>
+          <a
+            href="https://apps.powerapps.com/play/0c7b02d8-bfe9-493a-bf80-4d8aded12bb0?tenantId=1250cbfa-21ca-4197-81ce-949ab01c01d9&amp;source=portal&amp;screenColor=rgba(0%2C%2051%2C%20102%2C%201)"
+            >https://apps.powerapps.com/play/0c7b02d8-bfe9-493a-bf80-4d8aded12bb0?tenantId=1250cbfa-21ca-4197-81ce-949ab01c01d9&amp;source=portal&amp;screenColor=rgba(0%2C%2051%2C%20102%2C%201)</a
+          >
+        </p>
+        <p>
+          A fő oldalon láthatjuk a csapatok nevét ahol tudunk név alapján
+          keresni.
+        </p>
+        <p>
+          <img src="images/a1.jpg" width="20%" alt="" />
+          <img src="images/a2.jpg" width="20%" alt="" />
+        </p>
+        <p>
+          A plusz jelre nyomás esetén csapatokat tudunk hozzáadni a pipával
+          elfogadjuk az X-el pedig vissza lépünk.
+        </p>
+        <p><img src="images/a3.jpg" width="20%" alt="" /></p>
+        <p>
+          A jobbra nyílra kattintva meglévő csapatot törölhetünk illetve
+          szerkeszthetünk.
+        </p>
+        <p>
+          <img src="images/a1.jpg" width="20%" alt="" />
+          <img src="images/a4.jpg" width="20%" alt="" />
+        </p>
+        <p>
+          Ha a lenti ikonok közül az elsőre megyünk átdob minket a tabella
+          oldalra.
+        </p>
+        <p><img src="images/a6.jpg" width="20%" alt="" /></p>
+        <p>
+          Ha a tabella oldalra megyünk ez átvisz minket a piros és sárga lapok
+          táblázatra.
+        </p>
+        <p><img src="images/a7.jpg" width="20%" alt="" /></p>
+        <p>
+          Középső ikon az információs oldalt nyitja meg ahol csapatonként
+          nézhetünk statisztikákat.
+        </p>
+        <p>
+          <img src="images/a9.jpg" width="20%" alt="" />
+          <img src="images/a10.jpg" width="20%" alt="" />
+        </p>
+        <p>
+          A harmadik oldal pedig a gól lövő listánkat jeleníti meg itt is
+          kereshetünk játékos név alapján.
+        </p>
+        <p>
+          <img src="images/a13.jpg" width="20%" alt="" />
+          <img src="images/a14.jpg" width="20%" alt="" />
+        </p>
+        <p>
+          Power Bi jelentések ahol szűrési feltételek alapján kereshetünk az
+          adatok között.
+        </p>
+        <p>
+          <img src="images/a15.jpg" width="20%" alt="" />
+          <img src="images/a16.jpg" width="20%" alt="" />
+          <img src="images/a17.jpg" width="20%" alt="" />
+          <img src="images/a18.jpg" width="20%" alt="" />
+          <img src="images/a19.jpg" width="20%" alt="" />
+        </p>
+        <h2 id="fejlesztői-dokumentáció">Fejlesztői dokumentáció</h2>
+        <h3 id="modell-vezérelt-alkalmazás-3">Modell vezérelt alkalmazás</h3>
+        <p>
+          Megoldásokon alapszik az alkalmazás, azaz először a dataverset kellett
+          létrehoznom.
+        </p>
+        <p>
+          <img src="images/3.png" alt="" /> <img src="images/4.png" alt="" />
+        </p>
+        <p>
+          Megfelelő oszlopok hozzáadása, illetve megjelenítések és űrlapok
+          létrehozása, hogy az adatok letisztultak és átláthatóak legyenek.
+        </p>
+        <p>Adatok hozzáadása itt is lehetséges.</p>
+        <p>Power Bi report hozzáadása.</p>
+        <p><img src="images/5.png" alt="" /></p>
+        <h3 id="vászon-alapú-alkalmazás-1">Vászon alapú alkalmazás</h3>
+        <p>
+          Excel táblák létrehozása webes forrás alapján majd a táblákat
+          feltöltöttem a driveomra ahonnan a power apps képes betölteni az excel
+          táblákat majd azokból az adatokból dolgoztam.
+        </p>
+        <p><img src="images/6.png" alt="" /></p>
+        <p>
+          Az új képernyőre nyomva számos lehetőség közül választhatunk én
+          általában az üresből indultam ki ahol ez után a beszúrás gombbal
+          adhatok adatokat a képernyőre.
+        </p>
+        <p>
+          <img src="images/7.png" alt="" /> <img src="images/8.png" alt="" />
+        </p>
+        <p>Ha BrowseGallery1nél látjuk az oldalra vonatkozó függvényt.</p>
+        <p><img src="images/9.png" alt="" /></p>
+        <p>Minden objektumra tehetünk függvényt.</p>
+        <p>A Navigate átdob minket a BrowesScreen1re.</p>
+        <p><img src="images/10.png" alt="" /></p>
+        <p>a Back() függvény vissza dob az előző oldalra.</p>
+        <p><img src="images/11.png" alt="" /></p>
+        <p>A keresés függvénye:</p>
+        <p><img src="images/12.png" alt="" /></p>
+        <h3 id="power-bi-1">Power Bi</h3>
+        <p>
+          A dataverse és excel táblák beillesztése után kapcsolatokat hoztam
+          létre, hogy lehessen szűrni az adatok között, illetve, hogy
+          dashboardokat tudjak készíteni.
+        </p>
+        <p>
+          <img src="images/13.png" alt="" /> <img src="images/14.png" alt="" />
+          <img src="images/15.png" alt="" />
+        </p>
+        <h2 id="munkamenet-felosztás">Munkamenet, felosztás</h2>
+        <p>
+          2021.nov. 4. Kezdés ideje<br />
+          2021.nov. 8. Témakijelölése<br />
+          2021.nov. 15. Táblák létrehozásának és adatok bevitelének elkezdése<br />
+          2021.nov. 29. Power Bi megismerése<br />
+          2021.dec. 6. Modell vezérelt alkalmazás elkészítése<br />
+          2021.dec. 13. Power Bi reportok létrehozása<br />
+          2021.dec. 20. Vászon alapú alkalmazás létrehozása<br />
+          2021.dec 27. Mobilos felületek optimalizálása<br />
+          2022.jan. 3. Alkalmazások véglegesítése<br />
+          2022.jan. 10. Dokumentáció írása<br />
+          2022.jan. 25. Weboldal<br />
+          Egyeztetések:<br />
+          2021.okt.20.<br />
+          2021.okt.27.<br />
+          2021.nov.05.<br />
+          2021.nov.12.<br />
+          2021.dec.10.<br />
+          2022.jan.11.<br />
+          2022.jan.20.<br />
+          2022.jan.24.
+        </p>
+        <h2 id="összefoglalás">Összefoglalás</h2>
+        <p>
+          A power apps segítségével gyorsan létrehozhatunk professzionális
+          szintű alkalmazásokat és automatizált munkafolyamatokat, különböző
+          adatforrásokhoz kapcsolódva, és irányítópultokat ágyazhatunk be
+          alkalmazásainkba, amikor a Power Apps rendszert más Microsoft Power
+          Platform megoldásokkal együtt szeretnénk használni. Elsősorban az alap
+          dolgok megtanulása és elsajátítása talán egyszerűbb mint egy általános
+          programozói nyelvnél.
+        </p>
+        <h3 id="tervek-a-jövőre">Tervek a jövőre:</h3>
+        <p>
+          Háttér adatbázis fejlesztése<br />
+          Plusz funkciók hozzáadása<br />
+          Két alkalmazás és jelentések optimalizálása és összekapcsolása
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
